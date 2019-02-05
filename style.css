@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board {
+    margin-top: 100px;;
+    padding: 0;
+    width: 328px;
+    height: 328px;
+    border: 2px solid black;
+    border-radius: 8px; 
+    position: relative;
+}
+.board div {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px; 
+    margin: 0 2px;
+}
+.filledTile {
+    background-color: red;
+}
+.blankTile {
+    background-color:transparent;
+}
