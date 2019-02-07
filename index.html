@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game of Fifteen</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -18,13 +19,27 @@
                 <p>Steps</p>
                 <p id="steps">0</p>
             </div>
-            <div class="timer">
-                <p id="steps">Timer</p>
-                <p>0</p>
+            <div id="pause" class="pause">
+                <p>Pause</p>
+            </div>
+            <div id="reset" class="reset">
+                <p>Reset</p>
+            </div>
+            <div id="time" class="timer">
+                <p>Timer</p>
+                <p id="timer">00:00</p>
             </div>
         </div>
         <div class="board"></div>
     </div>
+    <aside id="popup" class="popup">
+        <div class="popup-inner">
+               <a href="" class="close" onclick="closePopup(event)"><i class="fas fa-times"></i></a>
+               <h1>Gratulacje Wygrałeś :)</h1>
+               <h2 id="scoreSteps"></h2>
+               <h2 id="scoreTime"></h2>
+        </div>    
+    </aside>
     <script src="script.js"></script>
 </body>
 

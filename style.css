@@ -21,6 +21,8 @@ body {
     font-weight: 600;
     text-align: center;
     margin: 5px 5px;
+    cursor: pointer;
+    user-select: none;
     
 }
 .filledTile {
@@ -36,7 +38,7 @@ body {
     margin: auto;
     margin-top: 30px;
     margin-bottom: 10px;
-    padding: 0 10px;
+    padding: 0 35px;
     font-size: 26px;
     color: white;    
     font-weight: 600;
@@ -50,14 +52,18 @@ p {
     margin: 0 0;
 }
 .steps {
-    width: 140px;
+    width: 100px;
     border-radius: 8px; 
     background-color: aqua;
+    cursor: pointer;
+    user-select: none;
 }
 .timer {
-    width: 140px;
+    width: 100px;
     border-radius: 8px; 
-    background-color: antiquewhite;
+    background-color: blue;
+    cursor: pointer;
+    user-select: none;
 }
 .container {
     background-color: blueviolet;
@@ -66,3 +72,53 @@ p {
     margin-top: 40px;
     text-align: center;
 }
+/* @media only screen and (max-width: 600px) {
+    .container {
+        width: 280px;
+      }
+  } */
+.pause{
+    width: 100px;
+    height: 60px;
+    border-radius: 8px; 
+    background-color: blue;
+    cursor: pointer;
+    user-select: none;
+}
+.reset {
+    width: 100px;
+    height: 60px;
+    border-radius: 8px; 
+    background-color: blue;
+    cursor: pointer;
+    user-select: none;
+}
+.popup {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.popup-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 200px;
+    background-color: blue;
+    text-align: center;
+    margin: auto;
+}
+
+.popup {
+    display: none;
+}
+
+.popup .popup-inner {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
