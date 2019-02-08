@@ -25,6 +25,21 @@ body {
     user-select: none;
     
 }
+.progresBar {
+    /* background-color: #AAC358; */
+    width: 435px;
+    border: 2px solid black;
+    border-radius: 8px; 
+    margin: 10px 40px;
+}
+.progBar {
+  width: 0;
+  height: 30px;
+  background-color: #4CAF50;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  transition: width 1.5s;
+}
 .filledTile {
     background-color: red;
     /* background: url(blogbanner_24.png);

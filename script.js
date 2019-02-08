@@ -5,6 +5,7 @@ let stepsCounter = 0;
 let startTimer = true;
 let stopTimer = false;
 let btnPause = true;
+let widthProgresBar = 1;
 for (var i = 0; i < board.length; i++) {
     board[i] = new Array();
 }
@@ -121,8 +122,10 @@ function checkWinGame() {
         for (var j = 0; j < 4; j++) {
             if (n == 15)
                 break;
-            if (board[i][j].innerHTML == ++n)
+            if (board[i][j].innerHTML == ++n){
                 ++countTile;
+                progresBar(countTile);
+            }
         }
     }
     if (countTile == 15) {
@@ -139,15 +142,26 @@ document.querySelector('#popup').addEventListener('click', () => {
 document.querySelector('#reset').addEventListener('click', () => {
     location.reload();
 });
-document.querySelector('#pause').addEventListener('click', () => {
-    btnPause = false;
-    document.querySelector(".board").removeEventListener("click", moveTiles);
-    document.querySelector("#pause").innerHTML = "Resume";
-    document.querySelector('#pause').addEventListener('click', () => {
+
+let flagPauseReasume = true;
+document.querySelector("#pause").addEventListener("click", () => {
+
+    if (document.querySelector("#pause p").innerHTML == 'Pause') {
+        btnPause = false;
+        document.querySelector(".board").removeEventListener("click", moveTiles);
+        document.querySelector("#pause p").innerHTML = "Resume";
+    }
+    else  {
         btnPause = true;
-        document.querySelector("#pause").innerHTML = "Pause";
+        document.querySelector("#pause p").innerHTML = "Pause";
         document.querySelector(".board").addEventListener("click", moveTiles);
-
-    });
-
+    }
 });
+
+function progresBar(countTile){
+    if(countTile == 15){
+        document.querySelector("#progBar").style.borderTopRightRadius= "8px";
+        document.querySelector("#progBar").style.borderBottomRightRadius = "8px";
+    }
+    document.querySelector("#progBar").style.width = countTile * 6.66 + '%';
+}
