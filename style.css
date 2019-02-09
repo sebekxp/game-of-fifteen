@@ -1,9 +1,17 @@
 body {
     display: grid;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Indie Flower', cursive;
+
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 .board {
     margin: auto;
-    background-color:black;;
+    background-color:black;
     padding: 0;
     width: 435px;
     height: 435px;
@@ -17,41 +25,37 @@ body {
     height: 100px;
     border-radius: 8px;
     color: white;
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 500;   
+    line-height: 100px;
     text-align: center;
     margin: 5px 5px;
     cursor: pointer;
     user-select: none;
-    
 }
+
 .progresBar {
-    /* background-color: #AAC358; */
     width: 435px;
     border: 2px solid black;
     border-radius: 8px; 
-    margin: 10px 40px;
+    margin: 10px 36px;
 }
 .progBar {
-  width: 0;
-  height: 30px;
-  background-color: #4CAF50;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  transition: width 1.5s;
+    width: 0;
+    height: 30px;
+    background-color: #00F85C;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transition: width 1.5s;
 }
 .filledTile {
-    background-color: red;
-    /* background: url(blogbanner_24.png);
-    background-size: cover; */
-    /* background-position: center;     */
+    background-color: #D63B5C;
 }
 .blankTile {
     background-color:transparent;
 }
 .stepsAndTimer {
     margin: auto;
-    margin-top: 30px;
     margin-bottom: 10px;
     padding: 0 35px;
     font-size: 26px;
@@ -62,58 +66,75 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-
+.progresBar p{
+    position: absolute;
+    margin-left: 177px;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+}
 p {
     margin: 0 0;
+}
+h1 {
+    font-size: 64px;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 .steps {
     width: 100px;
     border-radius: 8px; 
-    background-color: aqua;
+    background-color: #08B4F5;
+    border: 1px solid #173AF7;
     cursor: pointer;
     user-select: none;
+    line-height: 30px;
 }
 .timer {
     width: 100px;
     border-radius: 8px; 
-    background-color: blue;
+    background-color: #FFA84A;
+    border: 1px solid #C07EC3;
     cursor: pointer;
     user-select: none;
+    line-height: 30px;
 }
 .container {
-    background-color: blueviolet;
     width: 510px;
     margin: auto;
-    margin-top: 40px;
     text-align: center;
 }
-/* @media only screen and (max-width: 600px) {
-    .container {
-        width: 280px;
-      }
-  } */
 .pause{
     width: 100px;
     height: 60px;
     border-radius: 8px; 
-    background-color: blue;
+    background-color: #6079FE;
+    border: 1px solid #173AF7;    
     cursor: pointer;
     user-select: none;
+}
+.pause:hover {
+    -webkit-filter: brightness(90%);
 }
 .reset {
     width: 100px;
     height: 60px;
     border-radius: 8px; 
-    background-color: blue;
+    background-color: #FFCB4A;
+    border: 1px solid #C07EC3;
     cursor: pointer;
     user-select: none;
+}
+.reset:hover {
+    -webkit-filter: brightness(90%);
 }
 .popup {
     position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(35,35,60,.5);
 }
 .popup-inner {
     position: absolute;
@@ -121,19 +142,31 @@ p {
     left: 50%;
     transform: translate(-50%,-50%);
     width: 400px;
-    height: 200px;
-    background-color: blue;
+    height: 250px;
+    background-image: linear-gradient(45deg,#caeefa,#6f5ca8);
+    box-shadow: 0 0 30px 0 rgba(35,35,60,.7);
     text-align: center;
     margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 60px;
 }
-
+.popup-inner h1, h2{
+    margin: 0;
+}
+.popup-inner i {
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;;
+}
+.popup-inner i:hover{
+    transform: scale(1.2);
+    color: black;
+}
 .popup {
     display: none;
 }
 
-.popup .popup-inner {
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-}
+
 

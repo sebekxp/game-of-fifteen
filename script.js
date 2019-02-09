@@ -30,6 +30,7 @@ for (var i = 0, n = 15; i < 4; i++) {
     board[3][1].innerHTML
 ];
 function moveTiles(e) {
+    console.log('as')
     if (startTimer) {
         timer();
         startTimer = false;
@@ -122,7 +123,7 @@ function checkWinGame() {
         for (var j = 0; j < 4; j++) {
             if (n == 15)
                 break;
-            if (board[i][j].innerHTML == ++n){
+            if (board[i][j].innerHTML == ++n) {
                 ++countTile;
                 progresBar(countTile);
             }
@@ -151,16 +152,16 @@ document.querySelector("#pause").addEventListener("click", () => {
         document.querySelector(".board").removeEventListener("click", moveTiles);
         document.querySelector("#pause p").innerHTML = "Resume";
     }
-    else  {
+    else {
         btnPause = true;
         document.querySelector("#pause p").innerHTML = "Pause";
         document.querySelector(".board").addEventListener("click", moveTiles);
     }
 });
 
-function progresBar(countTile){
-    if(countTile == 15){
-        document.querySelector("#progBar").style.borderTopRightRadius= "8px";
+function progresBar(countTile) {
+    if (countTile == 15) {
+        document.querySelector("#progBar").style.borderTopRightRadius = "8px";
         document.querySelector("#progBar").style.borderBottomRightRadius = "8px";
     }
     document.querySelector("#progBar").style.width = countTile * 6.66 + '%';
