@@ -1,8 +1,9 @@
 const board = new Array(4);
+let randomNumberArray = new Array(4)
 const randomBlankX = Math.floor((Math.random() * 3) + 0);
 const randomBlankY = Math.floor((Math.random() * 3) + 0);
-const maxSizeArray = 15;
-let randomNumberArray = [];
+const maxSizeArray = 16;
+const N = 4;
 let sec;
 let min;
 let stepsCounter = 0;
@@ -12,9 +13,9 @@ let btnPause = true;
 let widthProgresBar = 1;
 
 for (var i = 0; i < board.length; i++) {
-    board[i] = new Array();
+    board[i] = new Array()
+    randomNumberArray[i] = new Array();
 }
-
 generateRandomNumber();
 for (var i = 0, n = 0; i < 4; i++) {
     for (var j = 0; j < 4; j++) {
@@ -22,58 +23,45 @@ for (var i = 0, n = 0; i < 4; i++) {
         board[i][j].id = i + "-" + j;
         board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
         board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
-
         if (i == randomBlankX && j == randomBlankY)
             board[i][j].classList.add("blankTile");
         else
             board[i][j].classList.add("filledTile");
 
-        if (board[i][j].classList[0] != "blankTile") {
-            board[i][j].innerHTML = randomNumberArray[n++];
+        if (board[i][j].classList[0] != "blankTile" && randomNumberArray[n] !=0 )
+            board[i][j].innerHTML = randomNumberArray[n];
+            n++
 
-        }
+
         document.querySelector(".board").appendChild(board[i][j]);
     }
 }
-findOneTwo();
-function findOneTwo() {
-    let oneI = 0;
-    let oneJ = 0;
-    let twoI = 0;
-    let twoJ = 0;
-
-    for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
-            if(board[i][j].innerHTML == 1){
-                oneI = i;
-                oneJ = j;
-           }
-            if(board[i][j].innerHTML == 2){
-                twoI = i;
-                twoJ = j;
-            }
+function searchElement(nI, nJ, elem){
+    for (var i = 0; i <= nI; i++) {
+        for (var j = 0; j <= nJ; j++) {
+            console.log(randomNumberArray[i][j]);
+            if(randomNumberArray[i][j] != "" && randomNumberArray[i][j] == elem)
+                return true;
+            else
+                return false;
         }
     }
-    console.log("One: ", oneI, oneJ);
-    console.log("Two: ", twoI, twoJ);
-
-    [board[oneI][oneJ].innerHTML, board[twoI][twoJ].innerHTML] = [
-        board[twoI][twoJ].innerHTML,
-        board[oneI][oneJ].innerHTML
-    ];
-
-
 }
+
 function generateRandomNumber() {
 
-    for (var i = 0; i < maxSizeArray; i++) {
-        var tempRandom = Math.floor((Math.random() * maxSizeArray) + 1);
-        if (randomNumberArray.indexOf(tempRandom) == -1) {
-            randomNumberArray.push(tempRandom);
+    for (var i = 0; i < N; i++) {
+        for (var j = 0; j < N; j++) {
+            var tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
+
+            while (searchElement(i, j, tempRandom))
+                tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
+
+            randomNumberArray[i][j] = tempRandom;
+            console.log("randomNumberArray[i][j]: ",i ,j ,randomNumberArray[i][j]);
         }
-        else
-            i--;
     }
+    console.log(randomNumberArray);
 }
 
 function moveTiles(e) {
