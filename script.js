@@ -1,5 +1,5 @@
 const board = new Array(4);
-let randomNumberArray = new Array(4)
+let randomNumberArray = new Array(4);
 const randomBlankX = Math.floor((Math.random() * 3) + 0);
 const randomBlankY = Math.floor((Math.random() * 3) + 0);
 const maxSizeArray = 16;
@@ -12,53 +12,102 @@ let stopTimer = false;
 let btnPause = true;
 let widthProgresBar = 1;
 
-for (var i = 0; i < board.length; i++) {
-    board[i] = new Array()
-    randomNumberArray[i] = new Array();
-}
-generateRandomNumber();
-for (var i = 0, n = 0; i < 4; i++) {
-    for (var j = 0; j < 4; j++) {
-        board[i][j] = document.createElement("div");
-        board[i][j].id = i + "-" + j;
-        board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
-        board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
-        if (i == randomBlankX && j == randomBlankY)
-            board[i][j].classList.add("blankTile");
-        else
-            board[i][j].classList.add("filledTile");
 
-        if (board[i][j].classList[0] != "blankTile" && randomNumberArray[n] !=0 )
-            board[i][j].innerHTML = randomNumberArray[n];
-            n++
+initBoard();
+do {
+    generateRandomNumber();
+} while (!isSolvable());
+createElement();
 
-
-        document.querySelector(".board").appendChild(board[i][j]);
+function initBoard() {
+    for (var i = 0; i < board.length; i++) {
+        board[i] = new Array()
+        randomNumberArray[i] = new Array();
     }
 }
-function searchElement(nI, nJ, elem){
-    for (var i = 0; i <= nI; i++) {
-        for (var j = 0; j <= nJ; j++) {
-            console.log(randomNumberArray[i][j]);
-            if(randomNumberArray[i][j] != "" && randomNumberArray[i][j] == elem)
-                return true;
+
+function createElement() {
+    for (var i = 0, n = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            board[i][j] = document.createElement("div");
+            board[i][j].id = i + "-" + j;
+            board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
+            board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
+
+            board[i][j].innerHTML = randomNumberArray[i][j] ? randomNumberArray[i][j] : "";
+
+            if (randomNumberArray[i][j] == "")
+                board[i][j].classList.add("blankTile");
             else
-                return false;
+                board[i][j].classList.add("filledTile");
+
+            document.querySelector(".board").appendChild(board[i][j]);
         }
     }
 }
 
+function getInvCount() {
+    var newArr = [];
+
+    for (var i = 0; i < randomNumberArray.length; i++) {
+        newArr = newArr.concat(randomNumberArray[i]);
+    }
+    let inv_count = 0;
+    for (var i = 0; i < N * N - 1; i++) {
+        for (var j = i + 1; j < N * N; j++) {
+            if (newArr[j] && newArr[i] &&
+                newArr[i] > newArr[j])
+                inv_count++;
+        }
+    }
+    return inv_count;
+}
+
+function findXPosition() {
+    for (var i = N - 1; i >= 0; i--)
+        for (var j = N - 1; j >= 0; j--)
+            if (randomNumberArray[i][j] == 0)
+                return N - i;
+}
+
+function isSolvable() {
+    let pos = findXPosition();
+    let invCount = getInvCount();
+    console.log("Inv: ", invCount)
+    if (N & 1)
+        return !(invCount & 1);
+
+    else {
+        console.log("Pos", pos);
+        if (pos & 1)
+            return !(invCount & 1);
+        else
+            return invCount & 1;
+    }
+}
+
+function searchElement(elem) {
+    var ifWas = false;
+    for (var i = 0; i < N; i++) {
+        for (var j = 0; j < N; j++) {
+            if (randomNumberArray[i][j] == elem)
+                ifWas = true;
+        }
+    }
+    return ifWas;
+}
+
 function generateRandomNumber() {
+    for (var i = 0; i < N; i++)
+        for (var j = 0; j < N; j++)
+            randomNumberArray[i][j] = -1;
 
     for (var i = 0; i < N; i++) {
         for (var j = 0; j < N; j++) {
             var tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
-
-            while (searchElement(i, j, tempRandom))
+            while (searchElement(tempRandom))
                 tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
-
             randomNumberArray[i][j] = tempRandom;
-            console.log("randomNumberArray[i][j]: ",i ,j ,randomNumberArray[i][j]);
         }
     }
     console.log(randomNumberArray);
@@ -100,7 +149,6 @@ function moveTiles(e) {
     if (checkWinGame())
         stopTimer = true;
 }
-document.querySelector(".board").addEventListener("click", moveTiles);
 
 function findIfBlankTileisNeighbour(i, j) {
     var neighbours = {
@@ -171,6 +219,10 @@ function checkWinGame() {
         return true;
     }
 }
+document.querySelector("#pause p").addEventListener("mouseover", () =>{
+    document.querySelector(".pause i").style.display = "block";
+});
+document.querySelector(".board").addEventListener("click", moveTiles);
 document.querySelector('#popup').addEventListener('click', () => {
     document.querySelector('#popup').style.display = 'none';
 });
@@ -178,7 +230,6 @@ document.querySelector('#reset').addEventListener('click', () => {
     location.reload();
 });
 
-let flagPauseReasume = true;
 document.querySelector("#pause").addEventListener("click", () => {
 
     if (document.querySelector("#pause p").innerHTML == 'Pause') {

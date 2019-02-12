@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game of Fifteen</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto" rel="stylesheet">
 </head>
 
@@ -17,16 +18,17 @@
         <h1>Game of Fifteen</h1>
         <div class="stepsAndTimer">
             <div class="steps">
-                <p>Steps</p>
+                <p>Moves</p>
                 <p id="steps">0</p>
             </div>
-            <div id="pause" class="pause">
-                <p>Pause</p>
-                <!-- <i class="far fa-pause-circle"></i> -->
+            <div class="pauseAndIcon">
+                <div id="pause" class="pause">
+                    <p asd >Pause</p>
+                </div>
             </div>
             <div id="reset" class="reset">
                 <p>Reset</p>
-                <!-- <i class="fas fa-redo-alt"></i> -->
+                <i class="fas fa-redo-alt"></i>
             </div>
             <div id="time" class="timer">
                 <p>Timer</p>
@@ -36,17 +38,17 @@
         <div class="board"></div>
 
         <div class="progresBar" id="progresBar">
-            <p>Your progress</p>   
+            <p>Your progress</p>
             <div class="progBar" id="progBar"></div>
         </div>
     </div>
     <aside id="popup" class="popup">
         <div class="popup-inner">
-               <a href="" class="close"><i class="fas fa-times"></i></a>
-               <h1>Congratulations, You Won!</h1>
-               <h2 id="scoreSteps"></h2>
-               <h2 id="scoreTime"></h2>
-        </div>    
+            <a href="" class="close"><i class="fas fa-times"></i></a>
+            <h1>Congratulations, You Won!</h1>
+            <h2 id="scoreSteps"></h2>
+            <h2 id="scoreTime"></h2>
+        </div>
     </aside>
     <script src="script.js"></script>
 </body>
