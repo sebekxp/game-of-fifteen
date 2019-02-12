@@ -14,9 +14,7 @@ let widthProgresBar = 1;
 
 
 initBoard();
-do {
-    generateRandomNumber();
-} while (!isSolvable());
+scrambleBoard();
 createElement();
 
 function initBoard() {
@@ -25,7 +23,11 @@ function initBoard() {
         randomNumberArray[i] = new Array();
     }
 }
-
+function scrambleBoard() {
+    do {
+        generateRandomNumber();
+    } while (!isSolvable());
+}
 function createElement() {
     for (var i = 0, n = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
@@ -219,9 +221,7 @@ function checkWinGame() {
         return true;
     }
 }
-document.querySelector("#pause p").addEventListener("mouseover", () =>{
-    document.querySelector(".pause i").style.display = "block";
-});
+
 document.querySelector(".board").addEventListener("click", moveTiles);
 document.querySelector('#popup').addEventListener('click', () => {
     document.querySelector('#popup').style.display = 'none';
@@ -229,18 +229,26 @@ document.querySelector('#popup').addEventListener('click', () => {
 document.querySelector('#reset').addEventListener('click', () => {
     location.reload();
 });
+document.querySelector("#olIcon").addEventListener("click", () => {
+    document.querySelector('#overlay').style.display = 'none';
+    btnPause = true;
+    document.querySelector("#pause p").innerHTML = "Pause";
+    document.querySelector(".board").addEventListener("click", moveTiles);
+});
 
 document.querySelector("#pause").addEventListener("click", () => {
 
     if (document.querySelector("#pause p").innerHTML == 'Pause') {
         btnPause = false;
         document.querySelector(".board").removeEventListener("click", moveTiles);
+        document.querySelector('#overlay').style.display = 'block';
         document.querySelector("#pause p").innerHTML = "Resume";
     }
     else {
         btnPause = true;
         document.querySelector("#pause p").innerHTML = "Pause";
         document.querySelector(".board").addEventListener("click", moveTiles);
+        document.querySelector('#overlay').style.display = 'none';
     }
 });
 

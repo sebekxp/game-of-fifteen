@@ -84,7 +84,7 @@ h1 {
 }
 .steps {
     width: 100px;
-    border-radius: 8px; 
+    border-radius: 20px; 
     background-color: #08B4F5;
     border: 1px solid #173AF7;
     cursor: pointer;
@@ -93,7 +93,7 @@ h1 {
 }
 .timer {
     width: 100px;
-    border-radius: 8px; 
+    border-radius: 20px; 
     background-color: #FFA84A;
     border: 1px solid #C07EC3;
     cursor: pointer;
@@ -108,47 +108,40 @@ h1 {
 .pause {
     width: 100px;
     height: 60px;
-    position: relative;
-    border-radius: 8px; 
+    border-radius: 20px; 
     background-color: #6079FE;
     border: 1px solid #173AF7;
-    /* box-shadow: 3px 3px #03188A; */
+    box-shadow: 3px 3px #03188A;
     cursor: pointer;
     user-select: none;
     line-height: 30px;
-    transition: transform  0.3s; 
 }
 
-.pause::after {
-    z-index: -2;
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 60px;
-    border-radius: 8px; 
-    /* background: #03188A; */
-    box-shadow: 3px 3px #03188A;
-    bottom: 0;
-    left: 0;
+.pause:active{
+    box-shadow: 0 0px #03188A;
+    transform: translateY(3px);
 }
-
-.pause:hover {
-    transform: translateY(2px);
-    bo
+.pause p {
+    margin-top: 15px;
 }
 
 .reset {
     width: 100px;
     height: 60px;
-    border-radius: 8px; 
+    border-radius: 20px; 
     background-color: #FFCB4A;
+    box-shadow: 3px 3px #A0760B;
     border: 1px solid #C07EC3;
     cursor: pointer;
     user-select: none;
     line-height: 30px;  
 }
-.reset:hover {
-    -webkit-filter: brightness(90%);
+.reset:active{
+    box-shadow: 0 0px #A0760B;
+    transform: translateY(3px);
+}
+.reset p {
+    margin-top: 15px;
 }
 .popup {
     position: fixed;
@@ -172,9 +165,31 @@ h1 {
     border-radius: 10px;
     line-height: 60px;
 }
+.overlay {
+    position: absolute;
+    left: 33.4%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 125px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 2;
+    display: none;
+}
+.overlay i {
+    margin-top: 130px;
+}
+.overlay i:hover{
+    filter: brightness(70%);
+}
 .popup-inner h1, h2{
     margin: 0;
 }
+
 .popup-inner i {
     font-size: 20px;
     position: absolute;
