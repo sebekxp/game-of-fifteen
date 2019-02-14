@@ -1,16 +1,28 @@
-const board = new Array(4);
-let randomNumberArray = new Array(4);
-const randomBlankX = Math.floor((Math.random() * 3) + 0);
-const randomBlankY = Math.floor((Math.random() * 3) + 0);
-const maxSizeArray = 16;
-const N = 4;
+let board;
+let randomNumberArray;
+let randomBlankX;
+let randomBlankY;
+let maxSizeArray;
+let N;
 let sec;
 let min;
-let stepsCounter = 0;
-let startTimer = true;
-let stopTimer = false;
-let btnPause = true;
-let widthProgresBar = 1;
+let stepsCounter;
+let startTimer;
+let stopTimer;
+let btnPause;
+let widthProgresBar;
+
+board = new Array(4);
+randomNumberArray = new Array(4);
+randomBlankX = Math.floor((Math.random() * 3) + 0);
+randomBlankY = Math.floor((Math.random() * 3) + 0);
+maxSizeArray = 16;
+N = 4;
+stepsCounter = 0;
+startTimer = true;
+stopTimer = false;
+btnPause = true;
+widthProgresBar = 1;
 
 
 initBoard();
@@ -75,12 +87,10 @@ function findXPosition() {
 function isSolvable() {
     let pos = findXPosition();
     let invCount = getInvCount();
-    console.log("Inv: ", invCount)
     if (N & 1)
         return !(invCount & 1);
 
     else {
-        console.log("Pos", pos);
         if (pos & 1)
             return !(invCount & 1);
         else
@@ -112,7 +122,6 @@ function generateRandomNumber() {
             randomNumberArray[i][j] = tempRandom;
         }
     }
-    console.log(randomNumberArray);
 }
 
 function moveTiles(e) {
@@ -182,12 +191,11 @@ function findIfBlankTileisNeighbour(i, j) {
 }
 
 function timer() {
-    sec = 0;
+    sec = 1;
     min = 0;
     var refreshIntervalId = setInterval(function () {
         if (stopTimer)
             clearInterval(refreshIntervalId);
-
         if (btnPause) {
             if (sec == 60) {
                 min++;
@@ -195,7 +203,6 @@ function timer() {
             }
             document.querySelector("#timer").innerHTML =
                 (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
-
             sec++;
         }
     }, 1000);
