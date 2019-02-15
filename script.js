@@ -222,15 +222,15 @@ function checkWinGame() {
     }
     if (countTile == 15) {
         document.querySelector('#popup').style.display = 'block';
-        document.querySelector('#scoreSteps').innerHTML = "Steps: " + stepsCounter;
-        document.querySelector('#scoreTime').innerHTML = "Time: " + (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
+        document.querySelector('#scoreSteps').innerHTML = stepsCounter;
+        document.querySelector('#scoreTime').innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
         (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
         return true;
     }
 }
 
 document.querySelector(".board").addEventListener("click", moveTiles);
-document.querySelector('#popup').addEventListener('click', () => {
+document.querySelector('#popup i').addEventListener('click', () => {
     document.querySelector('#popup').style.display = 'none';
 });
 document.querySelector('#reset').addEventListener('click', () => {

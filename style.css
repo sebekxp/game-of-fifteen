@@ -5,6 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-family: 'Indie Flower', cursive;
     height: 100%;
+    width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
@@ -159,16 +160,88 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 400px;
-    height: 250px;
-    background-image: linear-gradient(45deg,#caeefa,#6f5ca8);
+    width: 440px;
+    background-image: linear-gradient(45deg,#15a4d3,#6f5ca8);    
     box-shadow: 0 0 30px 0 rgba(35,35,60,.7);
     text-align: center;
     margin: auto;
-    padding: 20px;
+    padding-top: 20px;
     border-radius: 10px;
-    line-height: 60px;
 }
+.popup-inner h1 {
+    color: #1A2342;
+}
+.score {
+    display: flex;
+    align-items: center;
+    background-color: #F6F6F6;
+    font-weight: 900;
+}
+.score h2:nth-of-type(1)::first-line {
+    font-size: 24px;
+}
+.score h2:nth-of-type(2), h2:nth-of-type(3){
+    color:#F2B51A;
+}
+
+.score h2:nth-last-of-type(2)::before {
+    content: 'Steps: ';
+    color: #000;
+}
+
+.score h2:nth-of-type(3)::before {
+    content: 'Time: ';
+    color: #000;
+}
+footer {
+    background-color: #3D3D3D;
+    color: #fff;
+    padding: 15px 0;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.popup-inner .fas {
+    color: #1A2342;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;;
+}
+
+footer a:first-of-type i:hover {
+    color: #6e5494;
+    filter: brightness(120%);
+}
+footer a:nth-last-of-type(2) i:hover {
+    color: #44619D;
+    filter: brightness(120%);
+}
+footer a:last-of-type i:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} 
+.popup-inner i:hover{
+    transform: scale(1.2);
+}
+.popup-inner a i {
+    font-size: 30px;
+    color:  #FFFFFF;
+}
+
+.popup-inner h3 {
+    margin: 5px 5px;
+}
+.popup-inner h1, h2{
+    margin: 0 0;
+}
+
+.popup {
+    display: none;
+}
+
 .overlay {
     left: 50%;
     top: 50%;
@@ -185,29 +258,12 @@ h1 {
     z-index: 2;
     display: none;
 }
+
 .overlay i {
     margin-top: 130px;
 }
-.overlay i:hover{
+
+.overlay i:hover {
     filter: brightness(70%);
 }
-.popup-inner h1, h2{
-    margin: 0;
-}
-
-.popup-inner i {
-    font-size: 20px;
-    position: absolute;
-    top: 15px;
-    right: 15px;;
-}
-.popup-inner i:hover{
-    transform: scale(1.2);
-    color: black;
-}
-.popup {
-    display: none;
-}
-
-
 
