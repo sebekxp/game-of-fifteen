@@ -4,12 +4,13 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-family: 'Indie Flower', cursive;
-    height: 100%;
-    width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    height: 100%;
+    width: 100%;
 }
+
 .board {
     margin: auto;
     background-color:black;
@@ -19,6 +20,7 @@ body {
     border-radius: 8px; 
     position: relative;
 }
+
 .board div {
     position: absolute;
     width: 100px;
@@ -40,6 +42,7 @@ body {
     border-radius: 8px; 
     margin: 10px 0;
 }
+
 .progBar {
     width: 0;
     height: 30px;
@@ -48,12 +51,15 @@ body {
     border-bottom-left-radius: 8px;
     transition: width 1.5s;
 }
+
 .filledTile {
     background-color: #D63B5C;
 }
+
 .blankTile {
     background-color:transparent;
 }
+
 .stepsAndTimer {
     margin: auto;
     margin-bottom: 10px;
@@ -65,22 +71,26 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .progresBar p{
     position: absolute;
-    margin-left: 177px;
+    margin-left: 160px;
     font-size: 20px;
     cursor: pointer;
     user-select: none;
     font-weight: 600;
 }
+
 p {
     margin: 0 0;
 }
+
 h1 {
     font-size: 60px;
     margin-top: 20px;
     margin-bottom: 0;
 }
+
 .steps {
     width: 100px;
     border-radius: 20px; 
@@ -91,6 +101,7 @@ h1 {
     user-select: none;
     line-height: 30px;
 }
+
 .timer {
     width: 100px;
     border-radius: 20px; 
@@ -105,11 +116,13 @@ h1 {
 .steps, .timer p:nth-child(2) {
     font-size: 30px;
 }
+
 .container {
     width: 435px;
     margin: auto;
     text-align: center;
 }
+
 .pause {
     width: 100px;
     height: 60px;
@@ -126,6 +139,7 @@ h1 {
     box-shadow: 0 0px #03188A;
     transform: translateY(3px);
 }
+
 .pause p {
     margin-top: 15px;
 }
@@ -141,13 +155,16 @@ h1 {
     user-select: none;
     line-height: 30px;  
 }
+
 .reset:active{
     box-shadow: 0 0px #A0760B;
     transform: translateY(3px);
 }
+
 .reset p {
     margin-top: 15px;
 }
+
 .popup {
     position: fixed;
     top: 0;
@@ -155,6 +172,7 @@ h1 {
     width: 100%;
     background-color: rgba(35,35,60,.5);
 }
+
 .popup-inner {
     position: absolute;
     top: 50%;
@@ -168,18 +186,22 @@ h1 {
     padding-top: 20px;
     border-radius: 10px;
 }
+
 .popup-inner h1 {
     color: #1A2342;
 }
+
 .score {
     display: flex;
     align-items: center;
     background-color: #F6F6F6;
     font-weight: 900;
 }
+
 .score h2:nth-of-type(1)::first-line {
     font-size: 24px;
 }
+
 .score h2:nth-of-type(2), h2:nth-of-type(3){
     color:#F2B51A;
 }
@@ -193,6 +215,7 @@ h1 {
     content: 'Time: ';
     color: #000;
 }
+
 footer {
     background-color: #3D3D3D;
     color: #fff;
@@ -214,10 +237,12 @@ footer a:first-of-type i:hover {
     color: #6e5494;
     filter: brightness(120%);
 }
+
 footer a:nth-last-of-type(2) i:hover {
     color: #44619D;
     filter: brightness(120%);
 }
+
 footer a:last-of-type i:hover {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
     -webkit-background-clip: text;
@@ -226,6 +251,7 @@ footer a:last-of-type i:hover {
 .popup-inner i:hover{
     transform: scale(1.2);
 }
+
 .popup-inner a i {
     font-size: 30px;
     color:  #FFFFFF;
@@ -234,6 +260,7 @@ footer a:last-of-type i:hover {
 .popup-inner h3 {
     margin: 5px 5px;
 }
+
 .popup-inner h1, h2{
     margin: 0 0;
 }
@@ -243,9 +270,7 @@ footer a:last-of-type i:hover {
 }
 
 .overlay {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-39.4%);
+    display: flex;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     font-size: 125px;
@@ -266,4 +291,3 @@ footer a:last-of-type i:hover {
 .overlay i:hover {
     filter: brightness(70%);
 }
-
