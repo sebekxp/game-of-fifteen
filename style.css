@@ -4,10 +4,7 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-family: 'Indie Flower', cursive;
-    background-size:     cover;                      /* <------ */
-    /* background-repeat:   no-repeat; */
-    background-position: center center;
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
     background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
     background-size: cover;
     height: 100%;
@@ -25,6 +22,7 @@ body {
 }
 
 .board div {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     position: absolute;
     width: 100px;
     height: 100px;
