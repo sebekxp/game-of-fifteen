@@ -249,7 +249,7 @@ document.querySelector("#pause").addEventListener("click", () => {
         btnPause = false;
         document.querySelector(".board").removeEventListener("click", moveTiles);
         document.querySelector('#overlay').style.display = 'block';
-        document.querySelector("#pause p").innerHTML = "Resume";
+        document.querySelector("#pause p").innerHTML = "Start";
     }
     else {
         btnPause = true;
