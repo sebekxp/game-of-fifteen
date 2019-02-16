@@ -303,29 +303,29 @@ footer a:last-of-type i:hover {
 
 @media only screen and (max-width: 450px) {
     .board {
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
     }
     
     .board div {
-        width: 66.75px;
-        height: 66.75px;
+        width: 71.75px;
+        height: 71.75px;
         font-size: 30px;
         line-height: 67px;
     }
     .container {
-        width: 300px;
+        width: 320px;
     }
     .progresBar {
-        width: 296px;
+        width: 316px;
     }
     .progresBar p{
         margin-left: 90px;
         font-size: 18px;
     }
     .overlay {
-        width: 300px;
-        height: 300px;
+        width: 320px;
+        height: 320px;
         font-size: 95px;
     }
     .overlay i {
@@ -333,23 +333,39 @@ footer a:last-of-type i:hover {
     }
     .stepsAndTimer {
         justify-content: space-around;
-        font-size: 28px; 
+        font-size: 22px; 
     }
+    .steps p:nth-child(2), .timer p:nth-child(2) {
+        font-size: 22px;
+    }   
     .steps {
-        margin-bottom: 10px;
-        font-size: 26px; 
+        font-size: 22px;
+        width: 70px;
+        height: 52px;
     }
     .pause {
-        margin-bottom: 10px;
+        width: 70px;
+        height: 52px;
     }
+    .timer {
+        width: 70px;
+        height: 52px;
+        font-size: 22px;
+    }
+    .reset {
+        width: 70px;
+        height: 52px;
+    }
+    
     h1 {
-        font-size: 40px;
+        font-size: 43px;
     }
     .popup-inner {
-        width: 310px;
+        width: 300px;
     }
     .score img {
         width: 150px;
         height: 150px;
     }
+
   }

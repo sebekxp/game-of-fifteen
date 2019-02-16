@@ -271,8 +271,8 @@ function scaleWindow(x) {
     if (x.matches) { 
         for (var i = 0; i < 4; i++) {
             for (var j = 0; j < 4; j++) {
-                board[i][j].style.left = j * 66.75 + 5 * j + 5 + "px";
-                board[i][j].style.top = i * 66.75 + 5 * i + 5 + "px";
+                board[i][j].style.left = j * 71.75 + 5 * j + 5 + "px";
+                board[i][j].style.top = i * 71.75 + 5 * i + 5 + "px";
             }
         }
     } else {
