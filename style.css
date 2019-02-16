@@ -38,7 +38,7 @@ body {
 }
 
 .progresBar {
-    width: 435px;
+    width: 430px;
     border: 2px solid black;
     border-radius: 8px; 
     margin: 10px 0;
@@ -68,6 +68,7 @@ body {
     color: white;    
     font-weight: 600;
     display: flex;
+    flex-flow: row wrap;
     text-align: center;
     align-items: center;
     justify-content: space-between;
@@ -93,6 +94,7 @@ h1 {
 }
 
 .steps {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     width: 100px;
     border-radius: 20px; 
     background-color: #08B4F5;
@@ -104,6 +106,7 @@ h1 {
 }
 
 .timer {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     width: 100px;
     border-radius: 20px; 
     background-color: #FFA84A;
@@ -125,6 +128,7 @@ h1 {
 }
 
 .pause {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     width: 100px;
     height: 60px;
     border-radius: 20px; 
@@ -146,6 +150,7 @@ h1 {
 }
 
 .reset {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     width: 100px;
     height: 60px;
     border-radius: 20px; 
@@ -216,7 +221,10 @@ h1 {
     content: 'Time: ';
     color: #000;
 }
-
+.score img {
+    width: 200px;
+    height: 200px;
+}
 footer {
     background-color: #3D3D3D;
     color: #fff;
@@ -292,3 +300,56 @@ footer a:last-of-type i:hover {
 .overlay i:hover {
     filter: brightness(70%);
 }
+
+@media only screen and (max-width: 450px) {
+    .board {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .board div {
+        width: 66.75px;
+        height: 66.75px;
+        font-size: 30px;
+        line-height: 67px;
+    }
+    .container {
+        width: 300px;
+    }
+    .progresBar {
+        width: 296px;
+    }
+    .progresBar p{
+        margin-left: 90px;
+        font-size: 18px;
+    }
+    .overlay {
+        width: 300px;
+        height: 300px;
+        font-size: 95px;
+    }
+    .overlay i {
+        margin-top: 100px;
+    }
+    .stepsAndTimer {
+        justify-content: space-around;
+        font-size: 28px; 
+    }
+    .steps {
+        margin-bottom: 10px;
+        font-size: 26px; 
+    }
+    .pause {
+        margin-bottom: 10px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    .popup-inner {
+        width: 310px;
+    }
+    .score img {
+        width: 150px;
+        height: 150px;
+    }
+  }

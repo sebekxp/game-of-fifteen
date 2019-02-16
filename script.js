@@ -266,3 +266,25 @@ function progresBar(countTile) {
     }
     document.querySelector("#progBar").style.width = countTile * 6.66 + '%';
 }
+
+function scaleWindow(x) {
+    if (x.matches) { 
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+                board[i][j].style.left = j * 66.75 + 5 * j + 5 + "px";
+                board[i][j].style.top = i * 66.75 + 5 * i + 5 + "px";
+            }
+        }
+    } else {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+                board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
+                board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
+            }
+        }
+    }
+}
+
+var x = window.matchMedia("(max-width: 450px)")
+scaleWindow(x) 
+x.addListener(scaleWindow) 
