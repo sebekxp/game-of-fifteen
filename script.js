@@ -52,8 +52,11 @@ function createElement() {
 
             if (randomNumberArray[i][j] == "")
                 board[i][j].classList.add("blankTile");
-            else
+            else{
                 board[i][j].classList.add("filledTile");
+                board[i][j].addEventListener("click", moveTiles);
+            }
+           
 
             document.querySelector(".board").appendChild(board[i][j]);
         }
@@ -229,7 +232,7 @@ function checkWinGame() {
     }
 }
 
-document.querySelector(".board").addEventListener("click", moveTiles);
+
 document.querySelector('#popup i').addEventListener('click', () => {
     document.querySelector('#popup').style.display = 'none';
 });
