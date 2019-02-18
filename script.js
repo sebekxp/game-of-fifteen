@@ -1,9 +1,6 @@
 let board;
 let randomNumberArray;
-let randomBlankX;
-let randomBlankY;
 let maxSizeArray;
-let N;
 let sec;
 let min;
 let stepsCounter;
@@ -11,13 +8,39 @@ let startTimer;
 let stopTimer;
 let btnPause;
 let widthProgresBar;
+let arrSizeTile = 100;
+let nameClass = "l2";
+let N = 4 ;
+document.querySelector(".level-1").addEventListener("click", () => {
+    N = 3; arrSizeTile = 136.66; nameClass = "l1";
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+});
+document.querySelector(".level-2").addEventListener("click", () => {
+    N = 4; arrSizeTile = 100; nameClass = "l2";
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+});
+document.querySelector(".level-3").addEventListener("click", () => {
+    N = 5; arrSizeTile = 79; nameClass = "l3";
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+});
+document.querySelector(".level-4").addEventListener("click", () => {
+    N = 6; arrSizeTile = 65; nameClass = "l4";
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+});
 
-board = new Array(4);
-randomNumberArray = new Array(4);
-randomBlankX = Math.floor((Math.random() * 3) + 0);
-randomBlankY = Math.floor((Math.random() * 3) + 0);
-maxSizeArray = 16;
-N = 4;
+
 stepsCounter = 0;
 startTimer = true;
 stopTimer = false;
@@ -25,28 +48,43 @@ btnPause = true;
 widthProgresBar = 1;
 
 
-initBoard();
-scrambleBoard();
-createElement();
+initBoard(N);
+scrambleBoard(N);
+createElement(N,arrSizeTile, nameClass);
 
-function initBoard() {
-    for (var i = 0; i < board.length; i++) {
+function initBoard(N) {
+    board = new Array(N);
+    randomNumberArray = new Array(N);
+    for (var i = 0; i < N; i++) {
         board[i] = new Array()
         randomNumberArray[i] = new Array();
     }
 }
-function scrambleBoard() {
-    do {
-        generateRandomNumber();
-    } while (!isSolvable());
+function clearBoard() {
+        for (var i = 0; i < board.length; i++) {
+            for (var j = 0; j < board.length; j++) {
+
+                board[i][j].parentNode.removeChild(board[i][j]);
+
+                if( board[i][j].classList[0] == "filledTile")
+                    board[i][j].classList.remove("filledTile");
+                else
+                    board[i][j].classList.remove("blankTile");
+            }
+        }
 }
-function createElement() {
-    for (var i = 0, n = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
+function scrambleBoard(N) {
+    do {
+        generateRandomNumber(N);
+    } while (!isSolvable(N));
+}
+function createElement(N, arrSizeTile, nameClass) {
+    for (var i = 0, n = 0; i < N; i++) {
+        for (var j = 0; j < N; j++) {
             board[i][j] = document.createElement("div");
             board[i][j].id = i + "-" + j;
-            board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
-            board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
+            board[i][j].style.left = j * arrSizeTile + 5 * j + 5 + "px";
+            board[i][j].style.top = i * arrSizeTile + 5 * i + 5 + "px";
 
             board[i][j].innerHTML = randomNumberArray[i][j] ? randomNumberArray[i][j] : "";
 
@@ -57,13 +95,13 @@ function createElement() {
                 board[i][j].addEventListener("click", moveTiles);
             }
            
-
+            board[i][j].classList.add(nameClass);            
             document.querySelector(".board").appendChild(board[i][j]);
         }
     }
 }
 
-function getInvCount() {
+function getInvCount(N) {
     var newArr = [];
 
     for (var i = 0; i < randomNumberArray.length; i++) {
@@ -80,16 +118,16 @@ function getInvCount() {
     return inv_count;
 }
 
-function findXPosition() {
+function findXPosition(N) {
     for (var i = N - 1; i >= 0; i--)
         for (var j = N - 1; j >= 0; j--)
             if (randomNumberArray[i][j] == 0)
                 return N - i;
 }
 
-function isSolvable() {
-    let pos = findXPosition();
-    let invCount = getInvCount();
+function isSolvable(N) {
+    let pos = findXPosition(N);
+    let invCount = getInvCount(N);
     if (N & 1)
         return !(invCount & 1);
 
@@ -101,7 +139,7 @@ function isSolvable() {
     }
 }
 
-function searchElement(elem) {
+function searchElement(elem, N) {
     var ifWas = false;
     for (var i = 0; i < N; i++) {
         for (var j = 0; j < N; j++) {
@@ -112,16 +150,16 @@ function searchElement(elem) {
     return ifWas;
 }
 
-function generateRandomNumber() {
+function generateRandomNumber(N) {
     for (var i = 0; i < N; i++)
         for (var j = 0; j < N; j++)
             randomNumberArray[i][j] = -1;
 
     for (var i = 0; i < N; i++) {
         for (var j = 0; j < N; j++) {
-            var tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
-            while (searchElement(tempRandom))
-                tempRandom = Math.floor((Math.random() * maxSizeArray) + 0);
+            var tempRandom = Math.floor((Math.random() * N * N) + 0);
+            while (searchElement(tempRandom, N))
+                tempRandom = Math.floor((Math.random() * N * N) + 0);
             randomNumberArray[i][j] = tempRandom;
         }
     }
@@ -176,7 +214,7 @@ function findIfBlankTileisNeighbour(i, j) {
         neighbours.offset_i = i - 1;
         neighbours.offset_j = j;
         neighbours.matchIfFind = true;
-    } else if (i + 1 <= 3 && board[i + 1][j].classList[0] == "blankTile") {
+    } else if (i + 1 <= N-1 && board[i + 1][j].classList[0] == "blankTile") {
         neighbours.offset_i = i + 1;
         neighbours.offset_j = j;
         neighbours.matchIfFind = true;
@@ -184,7 +222,7 @@ function findIfBlankTileisNeighbour(i, j) {
         neighbours.offset_i = i;
         neighbours.offset_j = j - 1;
         neighbours.matchIfFind = true;
-    } else if (j + 1 <= 3 && board[i][j + 1].classList[0] == "blankTile") {
+    } else if (j + 1 <= N-1 && board[i][j + 1].classList[0] == "blankTile") {
         neighbours.offset_i = i;
         neighbours.offset_j = j + 1;
         neighbours.matchIfFind = true;
@@ -213,9 +251,9 @@ function timer() {
 
 function checkWinGame() {
     var countTile = 0;
-    for (var i = 0, n = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
-            if (n == 15)
+    for (var i = 0, n = 0; i < N; i++) {
+        for (var j = 0; j < N; j++) {
+            if (n == N * N -1) 
                 break;
             if (board[i][j].innerHTML == ++n) {
                 ++countTile;
@@ -223,7 +261,7 @@ function checkWinGame() {
             }
         }
     }
-    if (countTile == 15) {
+    if (countTile == N * N - 1) {
         document.querySelector('#popup').style.display = 'block';
         document.querySelector('#scoreSteps').innerHTML = stepsCounter;
         document.querySelector('#scoreTime').innerHTML = (min < 10 ? "0" + min : min) + ":" + (sec < 10 ? "0" + sec : sec);
@@ -263,26 +301,26 @@ document.querySelector("#pause").addEventListener("click", () => {
 });
 
 function progresBar(countTile) {
-    if (countTile == 15) {
+    if (countTile == N * N - 1) {
         document.querySelector("#progBar").style.borderTopRightRadius = "8px";
         document.querySelector("#progBar").style.borderBottomRightRadius = "8px";
     }
-    document.querySelector("#progBar").style.width = countTile * 6.66 + '%';
+    document.querySelector("#progBar").style.width = countTile * 100 / (N * N -1) + '%';
 }
 
 function scaleWindow(x) {
     if (x.matches) { 
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
+        for (var i = 0; i < N; i++) {
+            for (var j = 0; j < N; j++) {
                 board[i][j].style.left = j * 71.75 + 5 * j + 5 + "px";
                 board[i][j].style.top = i * 71.75 + 5 * i + 5 + "px";
             }
         }
     } else {
-        for (var i = 0; i < 4; i++) {
-            for (var j = 0; j < 4; j++) {
-                board[i][j].style.left = j * 100 + 5 * j + 5 + "px";
-                board[i][j].style.top = i * 100 + 5 * i + 5 + "px";
+        for (var i = 0; i < N; i++) {
+            for (var j = 0; j < N; j++) {
+                board[i][j].style.left = j * arrSizeTile + 5 * j + 5 + "px";
+                board[i][j].style.top = i * arrSizeTile + 5 * i + 5 + "px";
             }
         }
     }

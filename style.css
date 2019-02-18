@@ -25,25 +25,83 @@ body {
 .board div {
     -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     position: absolute;
-    width: 100px;
-    height: 100px;
     border-radius: 8px;
     color: white;
-    font-size: 40px;
     font-weight: 500;   
-    line-height: 100px;
     text-align: center;
     margin: 5px 5px;
     cursor: pointer;
     user-select: none;
 }
+section {
+    display: flex;
+    justify-content: space-between;
+}
+section div:nth-of-type(1) {
+    background-color: #FFA84A;
+    box-shadow: 3px 3px #BC670B;
+}
 
+section div:nth-of-type(2) {
+    background-color: #FFCB4A;
+    box-shadow: 3px 3px #A0760B;    
+}
+
+section div:nth-of-type(3) {
+    background-color: #6079FE;
+    box-shadow: 3px 3px #03188A;
+}
+
+section div:nth-of-type(4) {
+    background-color: #08B4F5;
+    box-shadow: 3px 3px #016D96;
+}
+.level {
+    margin: 20px 0;
+    width: 100px;
+    height: 30px;;
+    font-weight: 900;
+    line-height: 30px;
+    border-radius: 10px;
+    background-color: #08B4F5;
+    cursor: pointer;
+    user-select: none;
+}
+
+.l1 {
+    width: 133.3px;
+    height: 133.33px;
+    line-height: 133.33px;
+    font-size: 56px;
+}
+
+.l2 {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 40px;
+}
+
+.l3 {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 32px;
+}
+
+.l4 {
+    width: 66.66px;
+    height: 66.66px;
+    line-height: 66.66px;
+    font-size: 25px;
+}
 .progresBar {
     width: 430px;
     border: 2px solid black;
     border-radius: 8px; 
     margin: 10px 0;
 }
+
 
 .progBar {
     width: 0;
@@ -82,7 +140,15 @@ body {
     justify-content: space-between;
 }
 
-
+.instruction {
+    margin-top: 20px;
+    font-size: 46px;
+}
+.instruction-dsc {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 
 p {
     margin: 0 0;
