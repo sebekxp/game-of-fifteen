@@ -10,20 +10,24 @@ let btnPause;
 let widthProgresBar;
 let arrSizeTile = 100;
 let nameClass = "l2";
+let mobileSize = 71.75;
 let N = 4 ;
 document.querySelector(".level-1").addEventListener("click", () => {
-    N = 3; arrSizeTile = 136.66; nameClass = "l1";
+    N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize;
     clearBoard();
     initBoard(N);
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "45px";
 });
 document.querySelector(".level-2").addEventListener("click", () => {
     N = 4; arrSizeTile = 100; nameClass = "l2";
     clearBoard();
     initBoard(N);
     scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
+    createElement(N, arrSizeTile, nameClass);   
+    document.querySelector("nav .pointer").style.left = "157px";
+
 });
 document.querySelector(".level-3").addEventListener("click", () => {
     N = 5; arrSizeTile = 79; nameClass = "l3";
@@ -31,6 +35,7 @@ document.querySelector(".level-3").addEventListener("click", () => {
     initBoard(N);
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "268px";
 });
 document.querySelector(".level-4").addEventListener("click", () => {
     N = 6; arrSizeTile = 65; nameClass = "l4";
@@ -38,6 +43,8 @@ document.querySelector(".level-4").addEventListener("click", () => {
     initBoard(N);
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "380px";
+
 });
 
 

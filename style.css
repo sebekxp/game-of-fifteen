@@ -33,29 +33,76 @@ body {
     cursor: pointer;
     user-select: none;
 }
+nav {
+    margin: 12px 0;
+    position: relative;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+nav .pointer {
+    position: absolute;
+    margin: -3px 0;
+    top: -20px;
+    left: 157px;
+    transition: ease-in 0.5s;
+}
+nav .pointer p {
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color:  #D63B5C;
+    border: 1.5px solid #000;
+}
 section {
     display: flex;
     justify-content: space-between;
 }
+
 section div:nth-of-type(1) {
     background-color: #FFA84A;
     box-shadow: 3px 3px #BC670B;
+    border: 1px solid #C07EC3;
 }
 
 section div:nth-of-type(2) {
     background-color: #FFCB4A;
+    border: 1px solid #C07EC3;
     box-shadow: 3px 3px #A0760B;    
 }
 
 section div:nth-of-type(3) {
     background-color: #6079FE;
+    border: 1px solid #173AF7;
     box-shadow: 3px 3px #03188A;
 }
 
 section div:nth-of-type(4) {
     background-color: #08B4F5;
     box-shadow: 3px 3px #016D96;
+    border: 1px solid #173AF7;
 }
+
+section div:nth-of-type(1):active{
+    box-shadow: 0 0px #BC670B;
+    transform: translateY(3px);
+}
+
+section div:nth-of-type(2):active{
+    box-shadow: 0 0px #A0760B;
+    transform: translateY(3px);
+}
+
+section div:nth-of-type(3):active{
+    box-shadow: 0 0px #03188A;
+    transform: translateY(3px);
+}
+
+section div:nth-of-type(4):active{
+    box-shadow: 0 0px #016D96;
+    transform: translateY(3px);
+}
+
 .level {
     margin: 20px 0;
     width: 100px;
@@ -145,7 +192,7 @@ section div:nth-of-type(4) {
     font-size: 46px;
 }
 .instruction-dsc {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -437,5 +484,4 @@ footer a:last-of-type i:hover {
         width: 150px;
         height: 150px;
     }
-
   }
