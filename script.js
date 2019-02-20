@@ -12,48 +12,49 @@ let arrSizeTile = 100;
 let nameClass = "l2";
 let mobileSize = 71.75;
 let N = 4 ;
-document.querySelector(".level-1").addEventListener("click", () => {
-    N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize;
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "45px";
-});
-document.querySelector(".level-2").addEventListener("click", () => {
-    N = 4; arrSizeTile = 100; nameClass = "l2";
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);   
-    document.querySelector("nav .pointer").style.left = "157px";
-
-});
-document.querySelector(".level-3").addEventListener("click", () => {
-    N = 5; arrSizeTile = 79; nameClass = "l3";
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "268px";
-});
-document.querySelector(".level-4").addEventListener("click", () => {
-    N = 6; arrSizeTile = 65; nameClass = "l4";
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "380px";
-
-});
-
-
 stepsCounter = 0;
 startTimer = true;
 stopTimer = false;
 btnPause = true;
 widthProgresBar = 1;
+document.querySelector(".level-1").addEventListener("click", () => {
+    N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize = 96.66;
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "31px";
+    scaleWindow(x);
+});
+document.querySelector(".level-2").addEventListener("click", () => {
+    N = 4; arrSizeTile = 100; nameClass = "l2", mobileSize = 71.75;
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);   
+    document.querySelector("nav .pointer").style.left = "115px";
+    scaleWindow(x) ;
 
+});
+document.querySelector(".level-3").addEventListener("click", () => {
+    N = 5; arrSizeTile = 79; nameClass = "l3", mobileSize = 56;
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "195px";
+    scaleWindow(x) ;
+});
+document.querySelector(".level-4").addEventListener("click", () => {
+    N = 6; arrSizeTile = 65; nameClass = "l4", mobileSize = 45.83;
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "280px";
+    scaleWindow(x) ;
+
+});
 
 initBoard(N);
 scrambleBoard(N);
@@ -319,10 +320,24 @@ function scaleWindow(x) {
     if (x.matches) { 
         for (var i = 0; i < N; i++) {
             for (var j = 0; j < N; j++) {
-                board[i][j].style.left = j * 71.75 + 5 * j + 5 + "px";
-                board[i][j].style.top = i * 71.75 + 5 * i + 5 + "px";
+                board[i][j].style.left = j * mobileSize + 5 * j + 5 + "px";
+                board[i][j].style.top = i * mobileSize + 5 * i + 5 + "px";
             }
         }
+        document.querySelector(".level-1").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "31px";
+        });
+        document.querySelector(".level-2").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "115px";
+        });
+        document.querySelector(".level-3").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "195px";
+        });
+        document.querySelector(".level-4").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "280px";
+        });
+        
+
     } else {
         for (var i = 0; i < N; i++) {
             for (var j = 0; j < N; j++) {
@@ -330,6 +345,19 @@ function scaleWindow(x) {
                 board[i][j].style.top = i * arrSizeTile + 5 * i + 5 + "px";
             }
         }
+        document.querySelector(".level-1").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "45px";
+        });
+        document.querySelector(".level-2").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "157px";
+        });
+        document.querySelector(".level-3").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "268px";
+        });
+        document.querySelector(".level-4").addEventListener("click", () => {
+            document.querySelector("nav .pointer").style.left = "380px";
+        });
+        
     }
 }
 
