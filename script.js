@@ -12,11 +12,14 @@ let arrSizeTile = 100;
 let nameClass = "l2";
 let mobileSize = 71.75;
 let N = 4 ;
+let refreshIntervalId;
+let countTile = 0;
 stepsCounter = 0;
 startTimer = true;
 stopTimer = false;
 btnPause = true;
 widthProgresBar = 1;
+
 document.querySelector(".level-1").addEventListener("click", () => {
     N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize = 96.66;
     clearBoard();
@@ -25,6 +28,13 @@ document.querySelector(".level-1").addEventListener("click", () => {
     createElement(N, arrSizeTile, nameClass);
     document.querySelector("nav .pointer").style.left = "31px";
     scaleWindow(x);
+    clearInterval(refreshIntervalId);
+    startTimer = true;
+    stepsCounter = 0;
+    document.querySelector("#steps").innerHTML = stepsCounter;
+    document.querySelector("#timer").innerHTML = "00:00";
+    countTile = 0;
+    progresBar(countTile);
 });
 document.querySelector(".level-2").addEventListener("click", () => {
     N = 4; arrSizeTile = 100; nameClass = "l2", mobileSize = 71.75;
@@ -33,8 +43,14 @@ document.querySelector(".level-2").addEventListener("click", () => {
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);   
     document.querySelector("nav .pointer").style.left = "115px";
-    scaleWindow(x) ;
-
+    scaleWindow(x);
+    clearInterval(refreshIntervalId);
+    startTimer = true;
+    stepsCounter = 0;
+    document.querySelector("#steps").innerHTML = stepsCounter;
+    document.querySelector("#timer").innerHTML = "00:00";
+    countTile = 0;
+    progresBar(countTile);
 });
 document.querySelector(".level-3").addEventListener("click", () => {
     N = 5; arrSizeTile = 79; nameClass = "l3", mobileSize = 56;
@@ -43,7 +59,14 @@ document.querySelector(".level-3").addEventListener("click", () => {
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);
     document.querySelector("nav .pointer").style.left = "195px";
-    scaleWindow(x) ;
+    scaleWindow(x);
+    clearInterval(refreshIntervalId);
+    startTimer = true;
+    stepsCounter = 0;
+    document.querySelector("#steps").innerHTML = stepsCounter;
+    document.querySelector("#timer").innerHTML = "00:00";
+    countTile = 0;
+    progresBar(countTile);
 });
 document.querySelector(".level-4").addEventListener("click", () => {
     N = 6; arrSizeTile = 65; nameClass = "l4", mobileSize = 45.83;
@@ -52,8 +75,14 @@ document.querySelector(".level-4").addEventListener("click", () => {
     scrambleBoard(N);
     createElement(N, arrSizeTile, nameClass);
     document.querySelector("nav .pointer").style.left = "280px";
-    scaleWindow(x) ;
-
+    scaleWindow(x);
+    clearInterval(refreshIntervalId);
+    startTimer = true;
+    stepsCounter = 0;
+    document.querySelector("#steps").innerHTML = stepsCounter;
+    document.querySelector("#timer").innerHTML = "00:00";
+    countTile = 0;
+    progresBar(countTile);
 });
 
 initBoard(N);
@@ -242,7 +271,7 @@ function findIfBlankTileisNeighbour(i, j) {
 function timer() {
     sec = 1;
     min = 0;
-    var refreshIntervalId = setInterval(function () {
+    refreshIntervalId = setInterval(function () {
         if (stopTimer)
             clearInterval(refreshIntervalId);
         if (btnPause) {
@@ -258,7 +287,7 @@ function timer() {
 }
 
 function checkWinGame() {
-    var countTile = 0;
+    countTile = 0;
     for (var i = 0, n = 0; i < N; i++) {
         for (var j = 0; j < N; j++) {
             if (n == N * N -1) 

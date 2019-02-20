@@ -60,24 +60,28 @@ section {
 }
 
 section div:nth-of-type(1) {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     background-color: #FFA84A;
     box-shadow: 3px 3px #BC670B;
     border: 1px solid #C07EC3;
 }
 
 section div:nth-of-type(2) {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     background-color: #FFCB4A;
     border: 1px solid #C07EC3;
     box-shadow: 3px 3px #A0760B;    
 }
 
 section div:nth-of-type(3) {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     background-color: #6079FE;
     border: 1px solid #173AF7;
     box-shadow: 3px 3px #03188A;
 }
 
 section div:nth-of-type(4) {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
     background-color: #08B4F5;
     box-shadow: 3px 3px #016D96;
     border: 1px solid #173AF7;
