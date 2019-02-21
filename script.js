@@ -20,71 +20,6 @@ stopTimer = false;
 btnPause = true;
 widthProgresBar = 1;
 
-document.querySelector(".level-1").addEventListener("click", () => {
-    N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize = 96.66;
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "31px";
-    scaleWindow(x);
-    clearInterval(refreshIntervalId);
-    startTimer = true;
-    stepsCounter = 0;
-    document.querySelector("#steps").innerHTML = stepsCounter;
-    document.querySelector("#timer").innerHTML = "00:00";
-    countTile = 0;
-    progresBar(countTile);
-});
-document.querySelector(".level-2").addEventListener("click", () => {
-    N = 4; arrSizeTile = 100; nameClass = "l2", mobileSize = 71.75;
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);   
-    document.querySelector("nav .pointer").style.left = "115px";
-    scaleWindow(x);
-    clearInterval(refreshIntervalId);
-    startTimer = true;
-    stepsCounter = 0;
-    document.querySelector("#steps").innerHTML = stepsCounter;
-    document.querySelector("#timer").innerHTML = "00:00";
-    countTile = 0;
-    progresBar(countTile);
-});
-document.querySelector(".level-3").addEventListener("click", () => {
-    N = 5; arrSizeTile = 79; nameClass = "l3", mobileSize = 56;
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "195px";
-    scaleWindow(x);
-    clearInterval(refreshIntervalId);
-    startTimer = true;
-    stepsCounter = 0;
-    document.querySelector("#steps").innerHTML = stepsCounter;
-    document.querySelector("#timer").innerHTML = "00:00";
-    countTile = 0;
-    progresBar(countTile);
-});
-document.querySelector(".level-4").addEventListener("click", () => {
-    N = 6; arrSizeTile = 65; nameClass = "l4", mobileSize = 45.83;
-    clearBoard();
-    initBoard(N);
-    scrambleBoard(N);
-    createElement(N, arrSizeTile, nameClass);
-    document.querySelector("nav .pointer").style.left = "280px";
-    scaleWindow(x);
-    clearInterval(refreshIntervalId);
-    startTimer = true;
-    stepsCounter = 0;
-    document.querySelector("#steps").innerHTML = stepsCounter;
-    document.querySelector("#timer").innerHTML = "00:00";
-    countTile = 0;
-    progresBar(countTile);
-});
-
 initBoard(N);
 scrambleBoard(N);
 createElement(N,arrSizeTile, nameClass);
@@ -97,6 +32,23 @@ function initBoard(N) {
         randomNumberArray[i] = new Array();
     }
 }
+
+function callFunWhenLvlIsChange(N, arrSizeTile, nameClass) {
+    clearBoard();
+    initBoard(N);
+    scrambleBoard(N);
+    createElement(N, arrSizeTile, nameClass);
+    scaleWindow(x);
+    clearInterval(refreshIntervalId);
+    startTimer = true;
+    stopTimer = false;
+    stepsCounter = 0;
+    document.querySelector("#steps").innerHTML = stepsCounter;
+    document.querySelector("#timer").innerHTML = "00:00";
+    countTile = 0;
+    progresBar(countTile);
+}
+
 function clearBoard() {
         for (var i = 0; i < board.length; i++) {
             for (var j = 0; j < board.length; j++) {
@@ -240,7 +192,7 @@ function moveTiles(e) {
 }
 
 function findIfBlankTileisNeighbour(i, j) {
-    var neighbours = {
+    let neighbours = {
         left: 0,
         top: 0,
         offset_i: i,
@@ -307,36 +259,6 @@ function checkWinGame() {
     }
 }
 
-
-document.querySelector('#popup i').addEventListener('click', () => {
-    document.querySelector('#popup').style.display = 'none';
-});
-document.querySelector('#reset').addEventListener('click', () => {
-    location.reload();
-});
-document.querySelector("#olIcon").addEventListener("click", () => {
-    document.querySelector('#overlay').style.display = 'none';
-    btnPause = true;
-    document.querySelector("#pause p").innerHTML = "Pause";
-    document.querySelector(".board").addEventListener("click", moveTiles);
-});
-
-document.querySelector("#pause").addEventListener("click", () => {
-
-    if (document.querySelector("#pause p").innerHTML == 'Pause') {
-        btnPause = false;
-        document.querySelector(".board").removeEventListener("click", moveTiles);
-        document.querySelector('#overlay').style.display = 'block';
-        document.querySelector("#pause p").innerHTML = "Start";
-    }
-    else {
-        btnPause = true;
-        document.querySelector("#pause p").innerHTML = "Pause";
-        document.querySelector(".board").addEventListener("click", moveTiles);
-        document.querySelector('#overlay').style.display = 'none';
-    }
-});
-
 function progresBar(countTile) {
     if (countTile == N * N - 1) {
         document.querySelector("#progBar").style.borderTopRightRadius = "8px";
@@ -344,6 +266,60 @@ function progresBar(countTile) {
     }
     document.querySelector("#progBar").style.width = countTile * 100 / (N * N -1) + '%';
 }
+
+document.querySelector(".level-1").addEventListener("click", () => {
+    N = 3; arrSizeTile = 136.66; nameClass = "l1", mobileSize = 96.66;
+    callFunWhenLvlIsChange(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "31px";
+   
+});
+
+document.querySelector(".level-2").addEventListener("click", () => {
+    N = 4; arrSizeTile = 100; nameClass = "l2", mobileSize = 71.75;
+    callFunWhenLvlIsChange(N, arrSizeTile, nameClass); 
+    document.querySelector("nav .pointer").style.left = "115px";
+});
+
+document.querySelector(".level-3").addEventListener("click", () => {
+    N = 5; arrSizeTile = 79; nameClass = "l3", mobileSize = 56;
+    callFunWhenLvlIsChange(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "195px";
+});
+
+document.querySelector(".level-4").addEventListener("click", () => {
+    N = 6; arrSizeTile = 65; nameClass = "l4", mobileSize = 45.83;
+    callFunWhenLvlIsChange(N, arrSizeTile, nameClass);
+    document.querySelector("nav .pointer").style.left = "280px";
+    scaleWindow(x);
+});
+
+document.querySelector('#popup i').addEventListener('click', () => {
+    document.querySelector('#popup').style.display = 'none';
+});
+
+document.querySelector('#reset').addEventListener('click', () => {
+    location.reload();
+});
+
+document.querySelector("#olIcon").addEventListener("click", () => {
+    document.querySelector('#overlay').style.display = 'none';
+    btnPause = true;
+    document.querySelector("#pause p").innerHTML = "Pause";
+});
+
+document.querySelector("#pause").addEventListener("click", () => {
+
+    if (document.querySelector("#pause p").innerHTML == 'Pause') {
+        btnPause = false;
+        document.querySelector('#overlay').style.display = 'block';
+        document.querySelector("#pause p").innerHTML = "Start";
+    }
+    else {
+        btnPause = true;
+        document.querySelector("#pause p").innerHTML = "Pause";
+        document.querySelector('#overlay').style.display = 'none';
+    }
+});
 
 function scaleWindow(x) {
     if (x.matches) { 
@@ -365,8 +341,6 @@ function scaleWindow(x) {
         document.querySelector(".level-4").addEventListener("click", () => {
             document.querySelector("nav .pointer").style.left = "280px";
         });
-        
-
     } else {
         for (var i = 0; i < N; i++) {
             for (var j = 0; j < N; j++) {
@@ -390,6 +364,6 @@ function scaleWindow(x) {
     }
 }
 
-var x = window.matchMedia("(max-width: 450px)")
-scaleWindow(x) 
-x.addListener(scaleWindow) 
+let x = window.matchMedia("(max-width: 450px)");
+scaleWindow(x) ;
+x.addListener(scaleWindow) ;
