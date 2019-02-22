@@ -17,7 +17,7 @@ The width of the progress bar is calculated and changed automatically after each
 countTile * 100 / (N * N -1)
 ``` 
 - countTile - is the number of tiles in the appropriate places, 
-- N - the size of the table. 
+- N - the size of the table.</br>
 In the game we also have a counter, a timer and a button to stop the game. 
 After changing the level, the above mentioned functionalities along with the progress bar are reset.
 For tracking on which level we are currently used a simple indicator indicating the current level of the game.
