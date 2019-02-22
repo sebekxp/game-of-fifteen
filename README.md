@@ -10,7 +10,7 @@ A grid with a sequence of numbers is represented as a two-dimensional array, in 
 
 Elements (div) are created dynamically based on the maximum size of each level. 
 
-Numbers in the array are generated randomly until a solvable combination is generated. To check the correctness of the draw, I used [the algorithm] (https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/)
+Numbers in the array are generated randomly until a solvable combination is generated. To check the correctness of the draw, I used [the algorithm](https://www.geeksforgeeks.org/check-instance-15-puzzle-solvable/)
 
 To change the tiles I used a simple algorithm to find an empty tile among neighbors, if the 
 algorithm finds it, I change the styles, 
@@ -23,7 +23,7 @@ The progress bar is based on the current number of tiles that are already in the
 countTile * 100 / (N * N -1)
 ``` 
 - countTile - is the number of tiles in the appropriate places, 
-- N - the size of the table.</br></br>
+- N - the size of the table.</br>
 
 In the game we also have a counter, a timer and a button to stop the game. 
 After changing the level, the above mentioned functionalities along with the progress bar are reset.
