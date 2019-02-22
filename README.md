@@ -23,4 +23,4 @@ After changing the level, the above mentioned functionalities along with the pro
 For tracking on which level we are currently used a simple indicator indicating the current level of the game.
 
 ### Screenshot:<br/>
-<img src="https://i.imgur.com/IeLDAdN.png" width="550px" height="700px"/>
+<img src="https://i.imgur.com/IeLDAdN.png" width="350px" height="700px"/>
